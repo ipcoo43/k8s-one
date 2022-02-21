@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: web
+spec:
+  replicas: 3
+  serviceName: nginx-statefulset-service
+  podManagementPolicy: Parallel
+  selector:
+    matchLabels:
+      app: nginx-statefulset
+  template:
+    metadata:
+      labels:
+        app: nginx-statefulset
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx-statefulset
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-statefulset-service
+  labels: 
+    app: nginx-statefulset-service
+spec:
+  ports:
+  - protocol: TCP
+    port: 80
+    name: web
+  clusterIP: None 
+  selector:
+    app: nginx-statefulset-service
