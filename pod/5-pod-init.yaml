@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-pod
+  labels:
+    app: simple-pod
+spec:
+  initContainers:
+  - name: init-myservice
+    image: arisu1000/simple-container-app:latest
+    command: ['sh', '-c', 'sleep 2; echo Hello World 01;']  # 해당 컨테이너를 실행 할 때 2초 대기한 후 Hello World 01 메시지 출력 
+  - name: init-mydb
+    image: arisu1000/simple-container-app:latest
+    command: ['sh', '-c', 'sleep 2; echo Hello World 02;']
+  containers:
+  - name: simple-pod
+    image: arisu1000/simple-container-app:latest
+    command: ['sh', '-c', 'echo The app is running! && sleep 3600']  # 해당 컨테이너를 실행 할 때 The app is running! 라는 메시지를 출력하고 3600초 대기
