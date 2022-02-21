@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: nginx-for-svc
+  template:
+    metadata: 
+      name: nginx-for-svc
+      labels:
+        app: nginx-for-svc
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cluster-service
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx-for-svc
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80

@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: centos-pod
+  labels:
+    app: externalname-service 
+spec:
+  containers:
+  - name: centos
+    image: centos
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: externalname-service
+spec:
+  type: ExternalName
+  externalName: google.com
