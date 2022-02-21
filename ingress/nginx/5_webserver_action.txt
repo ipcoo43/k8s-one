@@ -1,0 +1,6 @@
+vim  marvel-home.yaml
+vim  pay.yaml
+
+kubectl apply -f marve-home.yaml
+kubectl apply -f pay.yaml
+kbectl get all

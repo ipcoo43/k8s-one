@@ -1,0 +1,10 @@
+[ Default namespace 치환 : kubectl config ]
+kubectl get namespaces
+kubectl config --help | less
+kubectl config view
+kubectl config set-context ingress-admin@kubernetes --cluster=kubernetes --user=kubernetes-admin --namespace=ingress-nginx
+kubectl config view
+kubectl config use-context ingress-admin@kubernetes
+kubectl config current-contest
+kubectl get all
+kubectl get svc -n default

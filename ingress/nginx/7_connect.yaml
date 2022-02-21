@@ -1,0 +1,5 @@
+kubectl get svc
+curl work1.example.com:30100
+curl work1.example.com:30100/pay
+외부에서 접속하려면 Port fowrding
+  - 내부 포트 30100 : 외부 포트 80

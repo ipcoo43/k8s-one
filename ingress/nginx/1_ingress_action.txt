@@ -1,0 +1,14 @@
+[ marvel-service Service Expose Cluster IP ]
+- marvel collection
+
+[ pay-service Service Exposes Cluster IP ]
+- pay Pod, pay Pod pay pod
+
+[ pod Ingress Controller : nginx Ingress ]
+- Ingress Rules
+  - http://xx.xx.xx.xx/ -> svc marvel-service
+  - http://xx.xx.xx.xx/pay -> svc pay-service
+
+[ client connect ]
+- http://xx.xx.xx.xx
+- http://xx.xx.xx.xx/pay

@@ -1,0 +1,4 @@
+cat ingress.yaml
+kubectl apply -f nginx_ingress.yaml
+kubectl get ingress
+kubectl describe ingress marvel-ingress

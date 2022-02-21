@@ -1,0 +1,14 @@
+cd webserver-demo
+ls
+ingress //  marvel-collection  //  paymentjs
+tree marvel-collection
+ - Dockerfile
+ - html
+   - images
+     - category.png
+	 - marvel_logo.png
+   - index.html
+cat marvel-collection/html/index.html
+tree paymentjs
+  - app.js
+  - Dockerfile
